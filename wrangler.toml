@@ -1,0 +1,8 @@
+name = "cima-backend"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cima-db"
+database_id = "AQUI_PEGAS_EL_ID_QUE_TE_DE_CLOUDFLARE_EN_LA_WEB"
