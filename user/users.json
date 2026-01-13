@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-01T00:00:00.000Z",
+  "users": [
+    {
+      "id": "u001",
+      "username": "valentina.gonzalez",
+      "displayName": "Dra. Valentina González Yanez",
+      "role": "doctor",
+      "specialty": "Otorrinolaringología",
+      "institution": "Hospital de Clínicas Caracas",
+      "licenseNumber": "ORL-12345",
+      "contact": {
+        "email": "valentina.gonzalez@hospital.edu",
+        "phone": "+58 212 5086321",
+        "mobile": "+58 424 1090979"
+      },
+      "settings": {
+        "defaultTheme": "light",
+        "defaultLayout": "topbar",
+        "autoSave": true,
+        "backupInterval": 300,
+        "signatureEnabled": true
+      },
+      "permissions": {
+        "createPatient": true,
+        "editPatient": true,
+        "deletePatient": false,
+        "createVisit": true,
+        "editVisit": true,
+        "deleteVisit": true,
+        "exportDocuments": true,
+        "manageUsers": false
+      },
+      "active": true,
+      "createdAt": "2023-01-01T00:00:00.000Z"
+    }
+  ],
+  "roles": {
+    "doctor": {
+      "description": "Médico tratante",
+      "permissions": ["read", "write", "export", "print"]
+    },
+    "assistant": {
+      "description": "Asistente médico",
+      "permissions": ["read", "write"]
+    },
+    "admin": {
+      "description": "Administrador del sistema",
+      "permissions": ["read", "write", "export", "print", "manage", "config"]
+    }
+  }
+}

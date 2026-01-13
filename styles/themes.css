@@ -1,0 +1,181 @@
+/* GLOSSARY: themes-001.css - Sistema de temas CIMA */
+
+:root {
+    /* Tema Light (default) */
+    --primary-light: #4a6fa5;
+    --primary-dark-light: #385d8a;
+    --secondary-light: #6d7b8c;
+    --accent-light: #ff6b6b;
+    --text-dark-light: #2c3e50;
+    --text-light-light: #f8f9fa;
+    --bg-primary-light: #f0f2f5;
+    --bg-secondary-light: #ffffff;
+    --border-light: #e1e5e9;
+    
+    /* Tema Dark */
+    --primary-dark: #5a86c2;
+    --primary-dark-dark: #4a6fa5;
+    --secondary-dark: #8a9aaf;
+    --accent-dark: #ff8585;
+    --text-dark-dark: #e1e5e9;
+    --text-light-dark: #1a1d21;
+    --bg-primary-dark: #1a1d21;
+    --bg-secondary-dark: #2c3e50;
+    --border-dark: #3a4a5f;
+    
+    /* Tema Dusk */
+    --primary-dusk: #8a6fa5;
+    --primary-dark-dusk: #6a4f8a;
+    --secondary-dusk: #9a8bac;
+    --accent-dusk: #ff9b6b;
+    --text-dark-dusk: #2c1e50;
+    --text-light-dusk: #f8f2fa;
+    --bg-primary-dusk: #2a1d35;
+    --bg-secondary-dusk: #3a2e50;
+    --border-dusk: #4a3a6f;
+}
+
+/* Aplicar variables según tema */
+[data-theme="light"] {
+    --primary-color: var(--primary-light);
+    --primary-dark-color: var(--primary-dark-light);
+    --secondary-color: var(--secondary-light);
+    --accent-color: var(--accent-light);
+    --text-dark: var(--text-dark-light);
+    --text-light: var(--text-light-light);
+    --bg-primary: var(--bg-primary-light);
+    --bg-secondary: var(--bg-secondary-light);
+    --border-color: var(--border-light);
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    --primary-color: var(--primary-dark);
+    --primary-dark-color: var(--primary-dark-dark);
+    --secondary-color: var(--secondary-dark);
+    --accent-color: var(--accent-dark);
+    --text-dark: var(--text-dark-dark);
+    --text-light: var(--text-light-dark);
+    --bg-primary: var(--bg-primary-dark);
+    --bg-secondary: var(--bg-secondary-dark);
+    --border-color: var(--border-dark);
+    color-scheme: dark;
+}
+
+[data-theme="dusk"] {
+    --primary-color: var(--primary-dusk);
+    --primary-dark-color: var(--primary-dark-dusk);
+    --secondary-color: var(--secondary-dusk);
+    --accent-color: var(--accent-dusk);
+    --text-dark: var(--text-dark-dusk);
+    --text-light: var(--text-light-dusk);
+    --bg-primary: var(--bg-primary-dusk);
+    --bg-secondary: var(--bg-secondary-dusk);
+    --border-color: var(--border-dusk);
+    color-scheme: dark;
+}
+
+/* Estilos base que usan las variables */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-dark);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-dark-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark-color);
+}
+
+/* Controles del panel de temas */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.theme-panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    padding: 20px;
+    margin-top: 10px;
+    display: none;
+}
+
+.theme-panel.active {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.theme-section {
+    margin-bottom: 20px;
+}
+
+.theme-section h4 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-option, .layout-option {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    color: var(--text-dark);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.theme-option:hover, .layout-option:hover {
+    background: var(--glass-bg-hover);
+    transform: translateX(5px);
+}
+
+.theme-option.active, .layout-option.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-dark-color);
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .theme-panel {
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        left: 20px;
+        width: auto;
+    }
+}

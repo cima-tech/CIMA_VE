@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CIMA — Sistema ORL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/glass.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link rel="stylesheet" href="styles/layout.css">
+</head>
+<body data-theme="light" data-layout="topbar">
+    <div id="err" class="hidden"></div>
+    
+    <!-- Theme/Layout Toggle -->
+    <div class="theme-toggle">
+        <button id="btnThemeMenu" class="glass-btn">
+            <i class="bi bi-palette"></i>
+        </button>
+        <div class="theme-panel glass hidden">
+            <div class="theme-section">
+                <h4>Temas</h4>
+                <button class="theme-option" data-theme="light">Light</button>
+                <button class="theme-option" data-theme="dark">Dark</button>
+                <button class="theme-option" data-theme="dusk">Dusk</button>
+            </div>
+            <div class="theme-section">
+                <h4>Diseño</h4>
+                <button class="layout-option" data-layout="topbar">Barra Superior</button>
+                <button class="layout-option" data-layout="sidebar">Sidebar</button>
+            </div>
+            <div class="theme-section">
+                <h4>Fondo</h4>
+                <button id="btnRandomBg">Wallpaper Aleatorio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Toolbar will be injected here -->
+        <div id="toolbarContainer"></div>
+        
+        <!-- Sidebar (if layout is sidebar) -->
+        <div id="sidebarContainer" class="hidden"></div>
+        
+        <!-- Main Content -->
+        <main id="mainContent">
+            <div class="container">
+                <div id="patientForm" class="card hidden">
+                    <!-- Patient form will be injected here -->
+                </div>
+                <div id="visitsContainer"></div>
+                <div id="previewBar" class="card hidden">
+                    <!-- Preview controls will be injected here -->
+                </div>
+                <div id="previewShell" class="preview-shell hidden">
+                    <div id="docPreview"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="searchModal" class="modal-overlay hidden">
+        <!-- Search modal will be injected here -->
+    </div>
+    <div id="exportModal" class="modal-overlay hidden">
+        <!-- Export modal will be injected here -->
+    </div>
+    <div id="shareModal" class="modal-overlay hidden">
+        <!-- Share modal will be injected here -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script type="module" src="modules/app.js"></script>
+</body>
+</html>

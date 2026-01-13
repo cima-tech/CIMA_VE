@@ -1,0 +1,38 @@
+project/
+├── index.html (corto - punto de entrada)
+├── styles/
+│   ├── main.css
+│   ├── glass.css
+│   ├── themes.css
+│   └── layout.css
+├── modules/
+│   ├── app.js (punto de entrada de JS)
+│   ├── utils.js
+│   ├── storage.js
+│   ├── ui-components.js
+│   ├── patient-module.js
+│   ├── visit-module.js
+│   ├── document-module.js
+│   ├── export-module.js
+│   ├── search-module.js
+│   └── share-module.js
+├── documents/
+│   ├── report-template.js
+│   ├── recipe-template.js
+│   └── export-utils.js
+├── patient/
+│   ├── patient-profile.js (JS-PP-001)
+│   └── patient-ui.js
+├── visitmodel/
+│   └── ORL-001.js (con glosario completo)
+├── user/
+│   ├── users.json
+│   └── user-001/
+│       ├── user-001.json
+│       └── layout/
+│           ├── header.png
+│           ├── footer.png
+│           ├── stamp.png
+│           └── signature.png
+└── assets/
+    └── wallpapers/

@@ -1,0 +1,158 @@
+/* GLOSSARY: glass-001.css - Efectos de vidrio y transparencias */
+
+:root {
+    --glass-bg-light: rgba(255, 255, 255, 0.1);
+    --glass-border-light: rgba(255, 255, 255, 0.2);
+    --glass-bg-dark: rgba(0, 0, 0, 0.2);
+    --glass-border-dark: rgba(255, 255, 255, 0.1);
+    --glass-bg-dusk: rgba(41, 33, 81, 0.3);
+    --glass-border-dusk: rgba(255, 255, 255, 0.15);
+    --blur-amount: blur(10px);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Clase base para efectos glass */
+.glass {
+    backdrop-filter: var(--blur-amount);
+    -webkit-backdrop-filter: var(--blur-amount);
+    border-radius: 12px;
+    box-shadow: var(--shadow-glass);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+}
+
+/* Variantes de tema */
+[data-theme="light"] .glass {
+    --glass-bg: var(--glass-bg-light);
+    --glass-border: var(--glass-border-light);
+}
+
+[data-theme="dark"] .glass {
+    --glass-bg: var(--glass-bg-dark);
+    --glass-border: var(--glass-border-dark);
+}
+
+[data-theme="dusk"] .glass {
+    --glass-bg: var(--glass-bg-dusk);
+    --glass-border: var(--glass-border-dusk);
+}
+
+/* Efectos de profundidad */
+.glass-elevated {
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.glass-subtle {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0.9;
+}
+
+/* Estados interactivos */
+.glass:hover {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+
+.glass:active {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transform: translateY(1px);
+}
+
+/* Botones glass */
+.glass-btn {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur-amount);
+    -webkit-backdrop-filter: var(--blur-amount);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+    background: var(--glass-bg-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards con efecto glass */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur-amount);
+    -webkit-backdrop-filter: var(--blur-amount);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Modal glass */
+.glass-modal {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Inputs glass */
+.glass-input {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+    color: inherit;
+}
+
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+/* Fondo con wallpaper dinámico */
+.dynamic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transition: background-image 1.5s ease-in-out;
+}
+
+.dynamic-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(2px);
+}
+
+/* Overlay basado en tema */
+[data-theme="light"] .dynamic-bg::after {
+    --bg-overlay: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .dynamic-bg::after {
+    --bg-overlay: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dusk"] .dynamic-bg::after {
+    --bg-overlay: rgba(41, 33, 81, 0.5);
+}
